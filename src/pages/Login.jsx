@@ -9,15 +9,14 @@ import Image from '../components/Image'
 import Log from '../assets/login.png'
 import Logo from '../assets/logo.png'
 
-
 import { useState } from 'react';
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from 'react-router-dom'
 
 import { BiError } from "react-icons/bi";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
+import { FcGoogle } from "react-icons/fc";
 
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import { ThreeDots } from 'react-loader-spinner'
 
@@ -32,6 +31,11 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState('');
     const [showPassword, setShowPassword] = useState(true);
     const [loader, setLoader] = useState(false);
+
+    const [popup, setPopUp] = useState(false);
+
+    const [resetemail, setResetEmail] = useState('');
+    const [reseterror, setResetError] = useState('');
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
@@ -126,6 +130,33 @@ const Login = () => {
             });
     }
 
+    const handleResetEmail = (e) => {
+        setResetEmail(e.target.value)
+
+    }
+
+    const handleSubmit = () => {
+
+        if (!resetemail) {
+            setResetError("Enter Your Email")
+
+        } else if (!emailRegex.test(resetemail)) {
+            setResetError("Enter Valid Email")
+        }
+
+        sendPasswordResetEmail(auth, resetemail)
+            .then(() => {
+                toast.success("Check Your Email")
+                setPopUp(false)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+
+            });
+    }
+
+
+
 
     return (
         <Grid container>
@@ -204,8 +235,35 @@ const Login = () => {
                                     <Button onClick={handleLogin} className='font-poppins! text-sm! bg-heading! py-4! rounded-full! mt-7! mb-2!' variant="contained">Login To Continue</Button>
                             }
 
-                            <Button className=' font-poppins! font-semibold! text-sm! text-olive! bg-transparent! border-none! shadow-none! rounded-full! py-3! mb-7!' variant="contained">Forgotten Password?</Button>
+                            <Button onClick={() => setPopUp(true)} className=' font-poppins! font-semibold! text-sm! text-olive! bg-transparent! border-none! shadow-none! rounded-full! py-3! mb-7!' variant="contained">Forgotten Password?</Button>
 
+                            {
+                                popup &&
+
+                                <div className='w-full h-screen bg-white absolute top-0 left-0 z-10 flex justify-center items-center'>
+
+                                    <div className='w-130'>
+
+                                        <h1 className='font-poppins font-bold text-5xl text-heading leading-13 capitalize'>Reset Your Password</h1>
+
+                                        <p className='font-inter font-normal text-sm text-body/50 mt-3 mb-8'>Enter your email address to continue.</p>
+
+                                        <TextField onChange={handleResetEmail} value={resetemail} className='w-full mt-5!' id="outlined-basic" label="Email Address" variant="outlined" />
+
+                                        {
+                                            reseterror && <p className='flex items-center font-inter font-normal text-sm text-red-500 mt-1 gap-1'><BiError />{reseterror}</p>
+                                        }
+
+                                        <div className='flex flex-col'>
+                                            <Button onClick={handleSubmit} className='font-poppins! text-sm! bg-heading! py-4! rounded-full! mt-7! mb-2!' variant="contained">Continue</Button>
+
+                                            <Button onClick={() => setPopUp(false)} className=' font-poppins! font-semibold! text-sm! text-olive! bg-transparent! border-none! shadow-none! rounded-full! py-3! mb-7!' variant="contained">Cancel</Button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
 
                             <p className='font-inter font-normal text-sm text-body text-center'>Don’t have an account ?<span className='font-bold text-light ml-2'><Link to="/">Sign Up</Link></span></p>
 
