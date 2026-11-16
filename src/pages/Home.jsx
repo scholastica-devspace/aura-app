@@ -7,6 +7,9 @@ import { Button } from '@mui/material'
 
 import Image from '../components/Image'
 import Icon from '../assets/icon-02.png'
+import GroupItem from '../components/GroupItem'
+import GroupTitle from '../components/GroupTitle'
+import SerachBar from '../components/SerachBar'
 
 
 
@@ -14,71 +17,38 @@ const Home = () => {
   return (
     <Grid container spacing={2}>
       <Grid size={4}>
-        <div className='w-full h-100  mt-5'>
+        <div className='w-full h-100'>
 
-          <div className='flex items-center w-[95%] mx-auto rounded-lg py-2 my-4 px-5
-          shadow-[0px_5px_6px_0px_rgba(0,0,0,0.4)]'>
-            <FaSearch className='text-2xl text-olive' />
-            <input className='w-full text-xl py-2 px-5 outline-none' type="text" placeholder='Search' />
-            <HiDotsVertical className='text-2xl text-olive' />
-          </div>
+          <SerachBar/>
 
-          <div className='h-70 overflow-y-scroll mx-3 px-5 py-8 rounded-lg my-8 shadow-[0px_5px_6px_0px_rgba(0,0,0,0.4)] flex flex-col gap-y-5 bg-mute/80'>
+          <div className='mx-3 p-5 rounded-lg shadow-[0px_4px_8px_0px_rgba(0,0,0,0.3)] flex flex-col gap-y-8 bg-mute/80'>
 
-            <div className='flex justify-between items-center'>
+            <GroupTitle title="Group List" />
 
-              <div className='flex gap-x-5'>
-                <div className='w-12.5 h-12.5 rounded-full'>
-                  <Image src={Icon} />
-                </div>
-                <div>
-                  <h2 className='font-poppins font-bold text-lg text-heading capitalize'>Friends Reunion</h2>
-                  <h3 className='font-inter font-normal text-sm text-body/70'>Hi Guys, Wassup!</h3>
-                </div>
-              </div>
-
-              <Button className='font-poppins! text-sm! bg-heading! py-2! rounded-lg!' variant="contained">Join</Button>
-
-            </div>
-
-            <div className='flex justify-between items-center'>
-
-              <div className='flex gap-x-5'>
-                <div className='w-12.5 h-12.5 rounded-full'>
-                  <Image src={Icon} />
-                </div>
-                <div>
-                  <h2 className='font-poppins font-bold text-lg text-heading capitalize'>Friends Reunion</h2>
-                  <h3 className='font-inter font-normal text-sm text-body/70'>Hi Guys, Wassup!</h3>
-                </div>
-              </div>
-
-              <Button className='font-poppins! text-sm! bg-heading! py-2! rounded-lg!' variant="contained">Join</Button>
-
-            </div>
-
-            <div className='flex justify-between items-center'>
-
-              <div className='flex gap-x-5'>
-                <div className='w-12.5 h-12.5 rounded-full'>
-                  <Image src={Icon} />
-                </div>
-                <div>
-                  <h2 className='font-poppins font-bold text-lg text-heading capitalize'>Friends Reunion</h2>
-                  <h3 className='font-inter font-normal text-sm text-body/70'>Hi Guys, Wassup!</h3>
-                </div>
-              </div>
-
-              <Button className='font-poppins! text-sm! bg-heading! py-2! rounded-lg!' variant="contained">Join</Button>
-
-            </div>
-
+            <div className='flex flex-col gap-y-8 h-60 overflow-y-scroll'>
+              <GroupItem src={Icon} groupName="Friends Reunion" groupText="Hi Guys, Wassup!"/>
+              <GroupItem src={Icon} groupName="Friends Forever" groupText="Good to see you."/>
+              <GroupItem src={Icon} groupName="Crazy Cousins" groupText="What plans today?"/>
+              <GroupItem src={Icon} groupName="Friends Reunion" groupText="Hi Guys, Wassup!"/>
+              <GroupItem src={Icon} groupName="Friends Forever" groupText="Good to see you."/>
+              <GroupItem src={Icon} groupName="Crazy Cousins" groupText="What plans today?"/>
+              </div>                    
             
-
           </div>
+
+          
 
         </div>
       </Grid>
+      
+      
+      
+
+      
+
+      
+
+      
 
     </Grid>
   )

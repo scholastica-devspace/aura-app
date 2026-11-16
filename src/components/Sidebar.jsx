@@ -2,7 +2,7 @@ import React from 'react'
 import SidebarLink from '../components/SidebarLink'
 
 import Image from '../components/Image'
-import Icon from '../assets/icon-01.png'
+import Icon from '../assets/icon-05.png'
 import { IoHomeOutline } from "react-icons/io5";
 import { AiOutlineMessage } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -20,22 +20,20 @@ const Sidebar = () => {
 
   return (
     <div className='w-full h-screen bg-heading rounded-r-3xl flex flex-col justify-around items-center'>
-      <div className='w-25 h-25 bg-transparent rounded-full'>
-        <Image src={Icon} />
+      <div className='w-30 h-30 bg-transparent'>
+        <Image className='rounded-full' src={Icon} />
       </div>
-      <div className='flex flex-col items-center gap-y-14'>
+      <div className='flex flex-col items-center gap-y-5'>
 
         {/* after:inset-0 is a cleaner alternative to writing after:w-full after:h-full after:top-1/2 after:-translate-y-1/2 after:left-0. */}
 
-        <SidebarLink active={active} name="home" to="/home" icon={IoHomeOutline} />
-        <SidebarLink active={active} name="message" to="/message" icon={AiOutlineMessage} />
-        <SidebarLink active={active} name="notification" to="/notification" icon={IoNotificationsOutline} />
-        <SidebarLink active={active} name="settings" to="/settings" icon={IoSettingsOutline} />
-
-        
+        <SidebarLink active={active} name="home" to="/dashboard/home" icon={IoHomeOutline} />
+        <SidebarLink active={active} name="message" to="/dashboard/message" icon={AiOutlineMessage} />
+        <SidebarLink active={active} name="notification" to="/dashboard/notification" icon={IoNotificationsOutline} />
+        <SidebarLink active={active} name="settings" to="/dashboard/settings" icon={IoSettingsOutline} />
 
       </div>
-      <TbLogout className='text-6xl text-mute mt-30' />
+      <TbLogout className='text-6xl text-mute mt-40' />
     </div>
   )
 }

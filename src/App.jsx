@@ -21,10 +21,10 @@ const router = createBrowserRouter(
 
       {/* <Route path="/" element={<Navigate to="/dashboard/home" replace />} /> */}
       
-      <Route path="/signup" element={<Signup />}></Route>
+      <Route path="/" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
 
-      <Route path="/" element={<Rootlayout />}>
+      <Route path="/dashboard" element={<Rootlayout />}>
 
         <Route path="home" element={<Home />}></Route>
         <Route path="message" element={<Message />}></Route>
