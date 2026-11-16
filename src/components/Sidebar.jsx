@@ -2,13 +2,16 @@ import React from 'react'
 import SidebarLink from '../components/SidebarLink'
 
 import Image from '../components/Image'
-import Icon from '../assets/icon-05.png'
+import Icon from '../assets/icon-01.png'
 import { IoHomeOutline } from "react-icons/io5";
 import { AiOutlineMessage } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
 import { Link, useLocation } from 'react-router-dom';
+
+import { IoMdCloudUpload } from "react-icons/io";
+
 
 
 const Sidebar = () => {
@@ -20,8 +23,10 @@ const Sidebar = () => {
 
   return (
     <div className='w-full h-screen bg-heading rounded-r-3xl flex flex-col justify-around items-center'>
-      <div className='w-30 h-30 bg-transparent'>
+      <div className='relative w-30 h-30 bg-transparent group'>
         <Image className='rounded-full' src={Icon} />
+        <div className='flex justify-center items-center absolute top-0 left-0 bg-transparent w-full h-full rounded-full group-hover:bg-white/30'><IoMdCloudUpload className='text-4xl text-transparent group-hover:text-heading' />
+        </div>
       </div>
       <div className='flex flex-col items-center gap-y-5'>
 

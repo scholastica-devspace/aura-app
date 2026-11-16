@@ -6,7 +6,7 @@ import SerachBar from '../components/SerachBar'
 
 const Friendrequest = () => {
     return (
-        <div className='w-full h-100'>
+        <div className='w-full h-100 mt-13'>
 
             <SerachBar />
 
