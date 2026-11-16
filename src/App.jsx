@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   Route,
   RouterProvider,
+  Navigate,
 } from "react-router-dom";
 
 import Signup from './pages/Signup'
@@ -17,10 +18,13 @@ import Rootlayout from './pages/Rootlayout'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+
+      <Route path="/" element={<Navigate to="/dashboard/home" replace />} />
+      
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
 
-      <Route path="/dasboard" element={<Rootlayout />}>
+      <Route path="/dashboard" element={<Rootlayout />}>
 
         <Route path="home" element={<Home />}></Route>
         <Route path="message" element={<Message />}></Route>
