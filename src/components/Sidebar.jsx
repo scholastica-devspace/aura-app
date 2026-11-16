@@ -1,4 +1,5 @@
 import React from 'react'
+import SidebarLink from '../components/SidebarLink'
 
 import Image from '../components/Image'
 import Icon from '../assets/icon-01.png'
@@ -7,21 +8,34 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
+import { Link, useLocation } from 'react-router-dom';
 
 
 const Sidebar = () => {
+
+  const location = useLocation()
+  const active = location.pathname.replace("/", "")
+  console.log(active)
+
+
   return (
     <div className='w-full h-screen bg-heading rounded-r-3xl flex flex-col justify-around items-center'>
-        <div className='w-25 h-25 bg-transparent rounded-full'>
-            <Image src={Icon}/>
-        </div>
-        <div className='flex flex-col items-center gap-y-12'>
-            <IoHomeOutline className='text-6xl text-white' />
-            <AiOutlineMessage className='text-6xl text-white' />
-            <IoNotificationsOutline className='text-6xl text-white' />
-            <IoSettingsOutline className='text-6xl text-white' />
-        </div>
-        <TbLogout className='text-6xl text-white mt-30' />
+      <div className='w-25 h-25 bg-transparent rounded-full'>
+        <Image src={Icon} />
+      </div>
+      <div className='flex flex-col items-center gap-y-14'>
+
+        {/* after:inset-0 is a cleaner alternative to writing after:w-full after:h-full after:top-1/2 after:-translate-y-1/2 after:left-0. */}
+
+        <SidebarLink active={active} name="home" to="/home" icon={IoHomeOutline} />
+        <SidebarLink active={active} name="message" to="/message" icon={AiOutlineMessage} />
+        <SidebarLink active={active} name="notification" to="/notification" icon={IoNotificationsOutline} />
+        <SidebarLink active={active} name="settings" to="/settings" icon={IoSettingsOutline} />
+
+        
+
+      </div>
+      <TbLogout className='text-6xl text-mute mt-30' />
     </div>
   )
 }

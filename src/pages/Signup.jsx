@@ -134,7 +134,7 @@ const Signup = () => {
 
             <Image className='mb-3' src={Logo} alt="AppLogo" />
 
-            <h1 className='flexfont-poppins font-bold text-5xl text-heading leading-13 capitalize'>Your journey starts here.</h1>
+            <h1 className='font-poppins font-bold text-5xl text-heading leading-13 capitalize'>Your journey starts here.</h1>
 
             <p className='font-inter font-normal text-sm text-body/50 mt-3 mb-8'>Take the first step toward a more connected experience.</p>
 
