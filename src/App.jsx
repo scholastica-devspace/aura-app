@@ -9,13 +9,25 @@ import {
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Home from './pages/Home'
+import Message from './pages/Message'
+import Notification from './pages/Notification'
+import Settings from './pages/Settings'
+import Rootlayout from './pages/Rootlayout'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-    <Route path="/" element={<Signup />}></Route>
-    <Route path="/login" element={<Login />}></Route>
-    <Route path="/home" element={<Home />}></Route>
+      <Route path="/signup" element={<Signup />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+
+      <Route path="/dasboard" element={<Rootlayout />}>
+
+        <Route path="home" element={<Home />}></Route>
+        <Route path="message" element={<Message />}></Route>
+        <Route path="notification" element={<Notification />}></Route>
+        <Route path="settings" element={<Settings />}></Route>
+
+      </Route>
     </>
   )
 );
@@ -27,3 +39,5 @@ const App = () => {
 }
 
 export default App
+
+

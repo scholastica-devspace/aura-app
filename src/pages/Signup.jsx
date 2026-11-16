@@ -204,7 +204,7 @@ const Signup = () => {
       </Grid>
 
       <Grid size={6}>
-        <Image className='w-full h-screen object-cover rounded-l-4xl' src={Sign} alt="Signup image" />
+        <Image className='w-full h-screen object-cover rounded-l-5xl' src={Sign} alt="Signup image" />
       </Grid>
     </Grid>
   )

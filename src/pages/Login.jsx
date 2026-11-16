@@ -246,7 +246,7 @@ const Login = () => {
 
                                         <h1 className='font-poppins font-bold text-5xl text-heading leading-13 capitalize'>Reset Your Password</h1>
 
-                                        <p className='font-inter font-normal text-sm text-body/50 mt-3 mb-8'>Enter your email address to continue.</p>
+                                        <p className='font-inter font-normal text-sm text-body/50 mt-3 mb-5'>Enter your email address to continue.</p>
 
                                         <TextField onChange={handleResetEmail} value={resetemail} className='w-full mt-5!' id="outlined-basic" label="Email Address" variant="outlined" />
 
@@ -255,7 +255,7 @@ const Login = () => {
                                         }
 
                                         <div className='flex flex-col'>
-                                            <Button onClick={handleSubmit} className='font-poppins! text-sm! bg-heading! py-4! rounded-full! mt-7! mb-2!' variant="contained">Continue</Button>
+                                            <Button onClick={handleSubmit} className='font-poppins! text-sm! bg-heading! rounded-full! py-4! mt-7! mb-2!' variant="contained">Continue</Button>
 
                                             <Button onClick={() => setPopUp(false)} className=' font-poppins! font-semibold! text-sm! text-olive! bg-transparent! border-none! shadow-none! rounded-full! py-3! mb-7!' variant="contained">Cancel</Button>
                                         </div>
@@ -274,7 +274,7 @@ const Login = () => {
             </Grid>
 
             <Grid size={6}>
-                <Image className='w-full h-screen object-cover rounded-l-4xl' src={Log} alt="Signup image" />
+                <Image className='w-full h-screen object-cover rounded-l-5xl' src={Log} alt="Signup image" />
             </Grid>
         </Grid>
     )
