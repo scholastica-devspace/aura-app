@@ -18,10 +18,8 @@ import Rootlayout from './pages/Rootlayout'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-
-      <Route path="/" element={<Navigate to="/signup" replace />} />
       
-      <Route path="/signup" element={<Signup />}></Route>
+      <Route path="/" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
 
       <Route path="/dashboard" element={<Rootlayout />}>

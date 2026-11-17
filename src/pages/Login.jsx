@@ -68,7 +68,7 @@ const Login = () => {
                         toast.success("Welcome back to Aura")
 
                         setTimeout(() => {
-                            navigate('/home')
+                            navigate('/dashboard/home')
 
                         }, 2000)
                         setLoader(false)
@@ -119,7 +119,7 @@ const Login = () => {
                 toast.success("Welcome back to Aura")
 
                 setTimeout(() => {
-                    navigate('/home')
+                    navigate('/dashboard/home')
 
                 }, 2000)
                 setLoader(false)
