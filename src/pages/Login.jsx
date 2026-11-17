@@ -63,6 +63,8 @@ const Login = () => {
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
 
+                    console.log(userCredential.user)
+
                     if (userCredential.user.emailVerified) {
 
                         toast.success("Welcome back to Aura")
