@@ -17,7 +17,7 @@ import { IoMdCloudUpload } from "react-icons/io";
 const Sidebar = () => {
 
   const location = useLocation()
-  const active = location.pathname.replace("/", "")
+  const active = location.pathname.split("/").pop()
   console.log(active)
 
 

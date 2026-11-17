@@ -19,17 +19,17 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
 
-      <Route path="/" element={<Navigate to="/dashboard/home" replace />} />
+      <Route path="/" element={<Navigate to="/signup" replace />} />
       
-      <Route path="/" element={<Signup />}></Route>
+      <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
 
       <Route path="/dashboard" element={<Rootlayout />}>
 
-        <Route path="home" element={<Home />}></Route>
-        <Route path="message" element={<Message />}></Route>
-        <Route path="notification" element={<Notification />}></Route>
-        <Route path="settings" element={<Settings />}></Route>
+        <Route path="/dashboard/home" element={<Home />}></Route>
+        <Route path="/dashboard/message" element={<Message />}></Route>
+        <Route path="/dashboard/notification" element={<Notification />}></Route>
+        <Route path="/dashboard/settings" element={<Settings />}></Route>
 
       </Route>
     </>
