@@ -26,10 +26,10 @@ const router = createBrowserRouter(
 
       <Route path="/dashboard" element={<Rootlayout />}>
 
-        <Route path="/dashboard/home" element={<Home />}></Route>
-        <Route path="/dashboard/message" element={<Message />}></Route>
-        <Route path="/dashboard/notification" element={<Notification />}></Route>
-        <Route path="/dashboard/settings" element={<Settings />}></Route>
+        <Route path="home" element={<Home />}></Route>
+        <Route path="message" element={<Message />}></Route>
+        <Route path="notification" element={<Notification />}></Route>
+        <Route path="settings" element={<Settings />}></Route>
 
       </Route>
     </>
